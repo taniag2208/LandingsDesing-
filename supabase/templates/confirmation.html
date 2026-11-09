@@ -1,0 +1,11 @@
+<div style="font-family:Inter,Arial,sans-serif;max-width:520px;margin:0 auto;padding:32px;color:#13111f">
+  <p style="font-weight:800;letter-spacing:.08em;color:#5b3df5;margin:0 0 24px">TITA LANDING STUDIO</p>
+  <h1 style="font-size:22px;margin:0 0 12px">Confirma tu correo</h1>
+  <p style="color:#4a4563;line-height:1.6">Activa tu cuenta para empezar a crear landings conectadas a tu ecommerce.</p>
+  <p style="margin:28px 0">
+    <a href="{{ .RedirectTo }}&token_hash={{ .TokenHash }}&type=email"
+       style="background:#5b3df5;color:#fff;padding:12px 20px;border-radius:12px;text-decoration:none;font-weight:600">Confirmar correo</a>
+  </p>
+  <!-- RedirectTo = NEXT_PUBLIC_SITE_URL/auth/confirm?next=... (ver signUpAction) -->
+  <p style="color:#9893ad;font-size:12px">Si no creaste esta cuenta, ignora este mensaje. El enlace expira en 1 hora.</p>
+</div>

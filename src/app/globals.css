@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+/*
+ * Tokens de diseño de TITA Landing Studio.
+ * PROVISIONALES: alineados a una estética tecnológica/premium. Ajustar aquí
+ * cuando se confirme la paleta oficial de titamedia.com (un solo lugar).
+ */
+@theme {
+  --color-ink-950: #0b0a16;
+  --color-ink-900: #13111f;
+  --color-ink-800: #1d1a2e;
+  --color-ink-700: #2c2842;
+  --color-ink-600: #4a4563;
+  --color-ink-500: #6b6684;
+  --color-ink-400: #9893ad;
+  --color-ink-300: #c4c0d4;
+  --color-ink-200: #e3e0ec;
+  --color-ink-100: #f1eff7;
+  --color-ink-50: #f8f7fc;
+
+  --color-brand-700: #3d22c9;
+  --color-brand-600: #4b2fe6;
+  --color-brand-500: #5b3df5;
+  --color-brand-400: #7d66f8;
+  --color-brand-300: #a596fb;
+  --color-brand-100: #ebe7fe;
+  --color-brand-50: #f5f3ff;
+
+  --color-aqua-500: #00c2a8;
+  --color-aqua-100: #d6f8f2;
+  --color-coral-500: #ff5c7a;
+  --color-coral-100: #ffe4e9;
+  --color-amber-500: #f5a524;
+  --color-amber-100: #fdf0d5;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-soft: 0 1px 2px rgb(19 17 31 / 0.04), 0 8px 24px -12px rgb(19 17 31 / 0.12);
+  --shadow-lift: 0 2px 4px rgb(19 17 31 / 0.05), 0 20px 40px -20px rgb(75 47 230 / 0.35);
+
+  --animate-fade-up: fade-up 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-shimmer: shimmer 1.6s linear infinite;
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes shimmer {
+    from { background-position: -200% 0; }
+    to { background-position: 200% 0; }
+  }
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-ink-50);
+  color: var(--color-ink-900);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.bg-studio-glow {
+  background:
+    radial-gradient(60rem 30rem at 85% -10%, rgb(91 61 245 / 0.35), transparent 60%),
+    radial-gradient(40rem 24rem at -10% 110%, rgb(0 194 168 / 0.22), transparent 60%),
+    var(--color-ink-950);
+}
+
+.skeleton {
+  background: linear-gradient(90deg, var(--color-ink-100) 25%, var(--color-ink-200) 37%, var(--color-ink-100) 63%);
+  background-size: 400% 100%;
+  animation: var(--animate-shimmer);
+}
