@@ -20,6 +20,13 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  // Solo desarrollo/preview: expone Supabase local bajo /supabase cuando el navegador
+  // no puede alcanzarlo directamente. Requiere NEXT_PUBLIC_SUPABASE_PROXY_PATH=/supabase.
+  async rewrites() {
+    const target = process.env.SUPABASE_PROXY_TARGET;
+    if (!target || process.env.NODE_ENV === "production" && process.env.ALLOW_SUPABASE_PROXY !== "1") return [];
+    return [{ source: "/supabase/:path*", destination: `${target.replace(/\/$/, "")}/:path*` }];
+  },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },

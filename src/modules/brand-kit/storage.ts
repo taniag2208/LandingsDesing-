@@ -27,6 +27,7 @@ export function buildAssetPath(orgId: string, folder: UploadFolder, mime: string
   return `${orgId}/${folder}/${id.replace(/[^a-zA-Z0-9_-]/g, "")}.${ext}`;
 }
 
+/** `supabaseUrl` puede ser absoluta o relativa (modo proxy de desarrollo). */
 export function publicAssetUrl(supabaseUrl: string, path: string): string {
   return `${supabaseUrl.replace(/\/$/, "")}/storage/v1/object/public/${BRAND_ASSETS_BUCKET}/${path
     .split("/")

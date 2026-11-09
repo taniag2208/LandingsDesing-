@@ -1,6 +1,7 @@
 import { PageHeader } from "@/components/studio/page-header";
 import { Alert } from "@/components/ui/alert";
 import { publicEnv } from "@/lib/env";
+import { assetBaseUrl } from "@/lib/supabase/config";
 import { formatDate } from "@/lib/utils";
 import { BrandKitEditor } from "@/modules/brand-kit/components/brand-kit-editor";
 import { getBrandKit } from "@/modules/brand-kit/data";
@@ -28,7 +29,7 @@ export default async function BrandKitPage({ searchParams }: PageProps<"/brand-k
           orgName={ctx.organization.name}
           initialKit={stored.kit}
           initialVersion={stored.version}
-          supabaseUrl={publicEnv().NEXT_PUBLIC_SUPABASE_URL}
+          supabaseUrl={assetBaseUrl(publicEnv().NEXT_PUBLIC_SUPABASE_URL)}
           canEdit={can(ctx.role, "brandkit.update")}
           welcome={sp.welcome === "1"}
         />

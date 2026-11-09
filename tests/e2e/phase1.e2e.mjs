@@ -173,7 +173,7 @@ async function main() {
     assert.equal(await page.getByLabel("WhatsApp").inputValue(), "+573001234567");
     await page.locator('img[alt="Logo principal"]').waitFor();
     const logoSrc = await page.locator('img[alt="Logo principal"]').first().getAttribute("src");
-    const logoRes = await fetch(logoSrc);
+    const logoRes = await fetch(new URL(logoSrc, BASE));
     assert.equal(logoRes.status, 200);
     assert.equal(logoRes.headers.get("content-type"), "image/png");
     log("Persistencia verificada tras recargar (color, contacto, logo público accesible)");
